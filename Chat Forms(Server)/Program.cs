@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Chat_Forms
+namespace Chat_Forms_Server_
 {
     static class Program
     {
@@ -16,10 +16,7 @@ namespace Chat_Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(new LoginForm());
+            Application.Run(new ChatServerForm());
         }
-
-       
     }
 }
