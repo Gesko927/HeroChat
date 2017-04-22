@@ -46,14 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputBox.cs">
+    <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -63,8 +66,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -77,7 +89,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +106,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegistrationBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\imgonline-com-ua-Resize-tD5X5MjUouHlg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\SignIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\SignUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\003-cloud-computing-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\003-superheroe-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\004-cloud-computing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\005-cloud-computing-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\batman.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ChatLogoWithHeros.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Connect Develop-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordBtn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

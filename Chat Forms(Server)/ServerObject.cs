@@ -15,9 +15,11 @@ namespace Chat_Forms_Server_
         static TcpListener tcpListener;
         public List<ClientObject> clients = new List<ClientObject>();
         private RichTextBox chat;
+        private ComboBox comboBox;
 
-        public ServerObject(RichTextBox chat)
+        public ServerObject(RichTextBox chat, ComboBox clientsComboBox)
         {
+            comboBox = clientsComboBox;
             this.chat = chat;
         }
         protected internal void AddConnection(ClientObject clientObject)
@@ -44,7 +46,7 @@ namespace Chat_Forms_Server_
                 {
                     TcpClient tcpClient = tcpListener.AcceptTcpClient();
 
-                    ClientObject clientObject = new ClientObject(tcpClient, this, chat);
+                    ClientObject clientObject = new ClientObject(tcpClient, this, chat, comboBox);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
@@ -88,6 +90,17 @@ namespace Chat_Forms_Server_
             for (int i = 0; i < clients.Count; i++)
             {
                 clients[i].Close(); 
+            }
+        }
+
+        protected internal void DisconnectUser(string id)
+        {
+            for(int i = 0; i < clients.Count; ++i)
+            {
+                if(clients[i].Id == id)
+                {
+                    clients[i].Close();
+                }
             }
         }
     }

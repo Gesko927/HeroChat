@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
@@ -20,11 +21,24 @@ namespace Chat_Forms
         private const int port = 8888;
         static TcpClient client;
         static NetworkStream stream;
-        Thread receiveThread;
+        private Thread receiveThread;
+        private Image[] avatars = new Image[17];
+        private Random random;
 
-        public ChatClientForm()
+        public ChatClientForm(string username)
         {
             InitializeComponent();
+            userName = username;
+            userNameLabel.Text = username;
+            ShowUserInfo();
+            random = new Random();
+
+            for(int i = 0; i < avatars.Length; ++i)
+            {
+                avatars[i] = Image.FromFile(@"Charachters\" + (i + 1).ToString() + ".png");
+            }
+
+            pictureBox1.Image = avatars[random.Next(0, 16)];
         }
 
         private void SendMessage(string msg)
@@ -54,6 +68,7 @@ namespace Chat_Forms
                     chatTextBox.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----Connection failed!\n");
 
                     connectPictureBox.Image = Image.FromFile("003-cloud-computing-1.png");
+                    userNameLabel.ForeColor = Color.DarkViolet;
                     break;
                 }
             }
@@ -81,8 +96,35 @@ namespace Chat_Forms
             }
             if (client != null)
             {
-                client.GetStream().Close();
                 client.Close();
+            }
+        }
+
+        private void ShowUserInfo()
+        {
+            SqlConnection connection;
+
+            try
+            {
+                connection = new SqlConnection(@"Data Source=DESKTOP-GECKO\SQLEXPRESS;Initial Catalog=ChatClientDB;Integrated Security=True");
+                connection.Open();
+
+                SqlCommand com = new SqlCommand(@"SELECT ID FROM Users WHERE Login = '" + userName + "';", connection);
+                int id = (int)com.ExecuteScalar();
+
+                SqlCommand command = new SqlCommand("SELECT FirstName, Country, Age FROM UserInfo WHERE UserID = " + id.ToString() + ";", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                nameLabel.Text = reader["FirstName"].ToString();
+                countryLabel.Text = reader["Country"].ToString();
+                ageLabel.Text = reader["Age"].ToString();
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -104,16 +146,12 @@ namespace Chat_Forms
 
         private void connectPictureBox_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text != "")
-            {
-                userName = nameTextBox.Text;
                 client = new TcpClient();
-                
 
                 try
                 {
                     client.Connect(host, port);
-                    nameLabel.Text = userName;
+                    
                     stream = client.GetStream(); 
 
                     string message = userName;
@@ -126,29 +164,13 @@ namespace Chat_Forms
                     receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                     receiveThread.Start();
                     connectPictureBox.Image = Image.FromFile("005-cloud-computing-2.png");
+                    userNameLabel.ForeColor = Color.LimeGreen;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Server is not responding. Try to connect later.");
                     Disconnect();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please, input your nickname!");
-            }
-        }
-
-        private void countryLabel_Click(object sender, EventArgs e)
-        {
-            InputBox.InputBox input = new InputBox.InputBox("country");
-            countryLabel.Text = input.getString();
-        }
-
-        private void ageLabel_Click(object sender, EventArgs e)
-        {
-            InputBox.InputBox input = new InputBox.InputBox("age");
-            ageLabel.Text = input.getString();
         }
 
         private void ChatClientForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -158,8 +180,14 @@ namespace Chat_Forms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //openFileDialog1.ShowDialog();
-            //openFileDialog1.
+            string filePath = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog1.FileName;
+
+                pictureBox1.Image = Image.FromFile(filePath);
+            };
+            
         }
     }
 }
