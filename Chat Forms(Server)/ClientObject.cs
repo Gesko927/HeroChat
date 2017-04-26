@@ -21,10 +21,10 @@ namespace Chat_Forms_Server_
 
         protected internal NetworkStream Stream { get; private set; }
 
-        string userName;
+        private string userName;
 
         ClientInfoStruct clientInfo;
-        TcpClient client;
+        TcpClient client = new TcpClient();
         ServerObject server;
         RichTextBox chat;
         ComboBox clientsComboBox;
@@ -82,6 +82,7 @@ namespace Chat_Forms_Server_
                                 clientsComboBox.Items.RemoveAt(i);
                             }
                         }
+                        //Close();
 
                         break;
                     }
@@ -90,7 +91,7 @@ namespace Chat_Forms_Server_
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                server.RemoveConnection(this.Id);
+                server.DisconnectUser(this.Id);
                 Close();
             }
         }

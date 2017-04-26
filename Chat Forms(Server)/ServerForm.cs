@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Chat_Forms_Server_
 {
-    public partial class ChatServerForm : Form
+    public partial class ChatServerForm : MetroFramework.Forms.MetroForm
     {
         static ServerObject server; 
         static Thread listenThread;    
@@ -73,10 +73,13 @@ namespace Chat_Forms_Server_
         {
             string info = GetUserInfo(clientComboBox.SelectedItem.ToString());
             MessageBox.Show(info);
-            
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         private string GetUserInfo(string username)
         {
             string result = "None";
@@ -101,6 +104,11 @@ namespace Chat_Forms_Server_
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         private int GetID(string username)
         {
             int result = 0;
@@ -137,13 +145,9 @@ namespace Chat_Forms_Server_
 
             server.DisconnectUser(GetID(username).ToString());
 
-            for (int i = 0; i < clientComboBox.Items.Count; ++i)
-            {
-                if (clientComboBox.Items[i].ToString() == username)
-                {
-                    clientComboBox.Items.RemoveAt(i);
-                }
-            }
+            server.RemoveClientFromComboBox(username);
+
+            clientComboBox.Refresh();
 
         }
     }

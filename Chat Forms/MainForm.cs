@@ -24,10 +24,12 @@ namespace Chat_Forms
         private Thread receiveThread;
         private Image[] avatars = new Image[17];
         private Random random;
+        private bool connected;
 
         public ChatClientForm(string username)
         {
             InitializeComponent();
+            connected = false;
             userName = username;
             userNameLabel.Text = username;
             ShowUserInfo();
@@ -38,7 +40,8 @@ namespace Chat_Forms
                 avatars[i] = Image.FromFile(@"Charachters\" + (i + 1).ToString() + ".png");
             }
 
-            pictureBox1.Image = avatars[random.Next(0, 16)];
+            avatarPictureBox.Image = avatars[random.Next(0, 16)];
+            
         }
 
         private void SendMessage(string msg)
@@ -69,6 +72,7 @@ namespace Chat_Forms
 
                     connectPictureBox.Image = Image.FromFile("003-cloud-computing-1.png");
                     userNameLabel.ForeColor = Color.DarkViolet;
+                    connected = false;
                     break;
                 }
             }
@@ -100,6 +104,10 @@ namespace Chat_Forms
             }
         }
 
+        /// <summary>
+        /// Відредагувати стрічку команди
+        /// Зробити захист від дурня
+        /// </summary>
         private void ShowUserInfo()
         {
             SqlConnection connection;
@@ -133,26 +141,21 @@ namespace Chat_Forms
             Disconnect();
         }
 
-        private void sendPictureBox_Click(object sender, EventArgs e)
-        {
-            if (sendMsgTextBox.Text != "")
-            {
-                chatTextBox.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----[ You ]: " + sendMsgTextBox.Text + "\n");
-                SendMessage(sendMsgTextBox.Text);
-                sendMsgTextBox.Text = "";
-            }
-
-        }
 
         private void connectPictureBox_Click(object sender, EventArgs e)
         {
-                client = new TcpClient();
+            client = new TcpClient();
 
+            if (connected)
+            {
+                MessageBox.Show("You are connected to this server already!");
+            }
+            else
+            {
                 try
                 {
                     client.Connect(host, port);
-                    
-                    stream = client.GetStream(); 
+                    stream = client.GetStream();
 
                     string message = userName;
                     byte[] data = Encoding.Unicode.GetBytes(message);
@@ -160,22 +163,24 @@ namespace Chat_Forms
 
                     sendPictureBox.Enabled = true;
 
-                    
                     receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                     receiveThread.Start();
                     connectPictureBox.Image = Image.FromFile("005-cloud-computing-2.png");
                     userNameLabel.ForeColor = Color.LimeGreen;
+                    connected = true;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Server is not responding. Try to connect later.");
                     Disconnect();
                 }
+            }
         }
 
         private void ChatClientForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Owner.Close();
+            Disconnect();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -185,9 +190,19 @@ namespace Chat_Forms
             {
                 filePath = openFileDialog1.FileName;
 
-                pictureBox1.Image = Image.FromFile(filePath);
+                avatarPictureBox.Image = Image.FromFile(filePath);
             };
             
+        }
+
+        private void sendPictureBox_Click(object sender, EventArgs e)
+        {
+            if (sendMsgTextBox.Text != "")
+            {
+                chatTextBox.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----[ You ]: " + sendMsgTextBox.Text + "\n");
+                SendMessage(sendMsgTextBox.Text);
+                sendMsgTextBox.Text = "";
+            }
         }
     }
 }

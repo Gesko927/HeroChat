@@ -14,15 +14,10 @@ namespace Chat_Forms
     public partial class LoginForm : Form
     {
         private ChatClientForm chatForm;
-        private RegistrationForm registerForm;
+        private RegisterForm registerForm;
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            
         }
 
         private bool IsAllowedUser(string login, string password)
@@ -36,7 +31,7 @@ namespace Chat_Forms
             {
                 connection = new SqlConnection(@"Data Source=DESKTOP-GECKO\SQLEXPRESS;Initial Catalog=ChatClientDB;Integrated Security=True");
                 connection.Open();
-                string sqlCommand = "SELECT Count(*) FROM Users WHERE Login = '" + loginTextBox.Text + "' AND Password = '" + passwordTextBox.Text + "';";
+                string sqlCommand = "SELECT Count(*) FROM Users WHERE Login = '" + login + "' AND Password = '" + password + "';";
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 count = (int)command.ExecuteScalar();
                 connection.Close();
@@ -54,11 +49,11 @@ namespace Chat_Forms
             return methodResult;
         }
 
-        private void signInPictureBox_Click(object sender, EventArgs e)
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if (IsAllowedUser(loginTextBox.Text, passwordTextBox.Text))
+            if (IsAllowedUser(loginTextBox.text, passwordTextBox.text))
             {
-                chatForm = new ChatClientForm(loginTextBox.Text);
+                chatForm = new ChatClientForm(loginTextBox.text);
                 chatForm.Owner = this;
 
                 chatForm.StartPosition = FormStartPosition.Manual;
@@ -70,14 +65,14 @@ namespace Chat_Forms
             else
             {
                 MessageBox.Show("Invalid login or password!");
-                loginTextBox.Text = "";
-                passwordTextBox.Text = "";
+                loginTextBox.text = "";
+                passwordTextBox.text = "";
             }
         }
 
-        private void signUpPictureBox_Click(object sender, EventArgs e)
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            registerForm = new RegistrationForm();
+            registerForm = new RegisterForm();
             registerForm.Owner = this;
 
             registerForm.StartPosition = FormStartPosition.Manual;

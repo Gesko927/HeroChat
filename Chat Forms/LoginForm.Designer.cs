@@ -30,25 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.loginPanel = new System.Windows.Forms.Panel();
-            this.signUpPictureBox = new System.Windows.Forms.PictureBox();
-            this.signInPictureBox = new System.Windows.Forms.PictureBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.signUpBtn = new Bunifu.Framework.UI.BunifuImageButton();
+            this.signInBtn = new Bunifu.Framework.UI.BunifuImageButton();
+            this.passwordTextBox = new Bunifu.Framework.UI.BunifuTextbox();
+            this.loginTextBox = new Bunifu.Framework.UI.BunifuTextbox();
             this.loginPictureBox = new System.Windows.Forms.PictureBox();
             this.passwordPictureBox = new System.Windows.Forms.PictureBox();
             this.loginPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.signUpPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.signInPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signUpBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signInBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // loginPanel
             // 
+            this.loginPanel.BackColor = System.Drawing.Color.Transparent;
             this.loginPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginPanel.BackgroundImage")));
             this.loginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.loginPanel.Controls.Add(this.signUpPictureBox);
-            this.loginPanel.Controls.Add(this.signInPictureBox);
+            this.loginPanel.Controls.Add(this.signUpBtn);
+            this.loginPanel.Controls.Add(this.signInBtn);
             this.loginPanel.Controls.Add(this.passwordTextBox);
             this.loginPanel.Controls.Add(this.loginTextBox);
             this.loginPanel.Controls.Add(this.loginPictureBox);
@@ -59,45 +60,61 @@
             this.loginPanel.Size = new System.Drawing.Size(356, 651);
             this.loginPanel.TabIndex = 0;
             // 
-            // signUpPictureBox
+            // signUpBtn
             // 
-            this.signUpPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.signUpPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("signUpPictureBox.Image")));
-            this.signUpPictureBox.Location = new System.Drawing.Point(193, 562);
-            this.signUpPictureBox.Name = "signUpPictureBox";
-            this.signUpPictureBox.Size = new System.Drawing.Size(100, 50);
-            this.signUpPictureBox.TabIndex = 6;
-            this.signUpPictureBox.TabStop = false;
-            this.signUpPictureBox.Click += new System.EventHandler(this.signUpPictureBox_Click);
+            this.signUpBtn.BackColor = System.Drawing.Color.Transparent;
+            this.signUpBtn.Image = ((System.Drawing.Image)(resources.GetObject("signUpBtn.Image")));
+            this.signUpBtn.ImageActive = null;
+            this.signUpBtn.Location = new System.Drawing.Point(193, 562);
+            this.signUpBtn.Name = "signUpBtn";
+            this.signUpBtn.Size = new System.Drawing.Size(100, 59);
+            this.signUpBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.signUpBtn.TabIndex = 9;
+            this.signUpBtn.TabStop = false;
+            this.signUpBtn.Zoom = 5;
+            this.signUpBtn.Click += new System.EventHandler(this.bunifuImageButton2_Click);
             // 
-            // signInPictureBox
+            // signInBtn
             // 
-            this.signInPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.signInPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("signInPictureBox.Image")));
-            this.signInPictureBox.Location = new System.Drawing.Point(63, 562);
-            this.signInPictureBox.Name = "signInPictureBox";
-            this.signInPictureBox.Size = new System.Drawing.Size(100, 50);
-            this.signInPictureBox.TabIndex = 6;
-            this.signInPictureBox.TabStop = false;
-            this.signInPictureBox.Click += new System.EventHandler(this.signInPictureBox_Click);
+            this.signInBtn.BackColor = System.Drawing.Color.Transparent;
+            this.signInBtn.Image = ((System.Drawing.Image)(resources.GetObject("signInBtn.Image")));
+            this.signInBtn.ImageActive = null;
+            this.signInBtn.Location = new System.Drawing.Point(63, 562);
+            this.signInBtn.Name = "signInBtn";
+            this.signInBtn.Size = new System.Drawing.Size(100, 59);
+            this.signInBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.signInBtn.TabIndex = 8;
+            this.signInBtn.TabStop = false;
+            this.signInBtn.Zoom = 5;
+            this.signInBtn.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordTextBox.Location = new System.Drawing.Point(88, 500);
+            this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(51)))));
+            this.passwordTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("passwordTextBox.BackgroundImage")));
+            this.passwordTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Black;
+            this.passwordTextBox.Icon = ((System.Drawing.Image)(resources.GetObject("passwordTextBox.Icon")));
+            this.passwordTextBox.Location = new System.Drawing.Point(88, 499);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(182, 27);
-            this.passwordTextBox.TabIndex = 4;
-            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.Size = new System.Drawing.Size(182, 36);
+            this.passwordTextBox.TabIndex = 7;
+            this.passwordTextBox.text = "";
             // 
             // loginTextBox
             // 
-            this.loginTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginTextBox.Location = new System.Drawing.Point(88, 375);
+            this.loginTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(51)))));
+            this.loginTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginTextBox.BackgroundImage")));
+            this.loginTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.6F);
+            this.loginTextBox.ForeColor = System.Drawing.Color.Black;
+            this.loginTextBox.Icon = ((System.Drawing.Image)(resources.GetObject("loginTextBox.Icon")));
+            this.loginTextBox.Location = new System.Drawing.Point(88, 373);
+            this.loginTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(182, 27);
-            this.loginTextBox.TabIndex = 3;
+            this.loginTextBox.Size = new System.Drawing.Size(182, 36);
+            this.loginTextBox.TabIndex = 1;
+            this.loginTextBox.text = "";
             // 
             // loginPictureBox
             // 
@@ -122,6 +139,7 @@
             // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(356, 651);
             this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -130,9 +148,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.loginPanel.ResumeLayout(false);
-            this.loginPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.signUpPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.signInPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signUpBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signInBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -143,10 +160,10 @@
 
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.PictureBox passwordPictureBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.PictureBox loginPictureBox;
-        private System.Windows.Forms.PictureBox signUpPictureBox;
-        private System.Windows.Forms.PictureBox signInPictureBox;
+        private Bunifu.Framework.UI.BunifuTextbox passwordTextBox;
+        private Bunifu.Framework.UI.BunifuTextbox loginTextBox;
+        private Bunifu.Framework.UI.BunifuImageButton signInBtn;
+        private Bunifu.Framework.UI.BunifuImageButton signUpBtn;
     }
 }

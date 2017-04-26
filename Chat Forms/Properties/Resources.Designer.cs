@@ -65,17 +65,7 @@ namespace Chat_Forms.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _003_cloud_computing_1 {
             get {
-                object obj = ResourceManager.GetObject("_003_cloud_computing_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _003_superheroe_2 {
-            get {
-                object obj = ResourceManager.GetObject("_003_superheroe_2", resourceCulture);
+                object obj = ResourceManager.GetObject("003-cloud-computing-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +75,7 @@ namespace Chat_Forms.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _004_cloud_computing {
             get {
-                object obj = ResourceManager.GetObject("_004_cloud_computing", resourceCulture);
+                object obj = ResourceManager.GetObject("004-cloud-computing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,18 +85,8 @@ namespace Chat_Forms.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _005_cloud_computing_2 {
             get {
-                object obj = ResourceManager.GetObject("_005_cloud_computing_2", resourceCulture);
+                object obj = ResourceManager.GetObject("005-cloud-computing-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon batman {
-            get {
-                object obj = ResourceManager.GetObject("batman", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -123,19 +103,9 @@ namespace Chat_Forms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Connect_Develop_96 {
-            get {
-                object obj = ResourceManager.GetObject("Connect_Develop_96", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap imgonline_com_ua_Resize_tD5X5MjUouHlg {
             get {
-                object obj = ResourceManager.GetObject("imgonline_com_ua_Resize_tD5X5MjUouHlg", resourceCulture);
+                object obj = ResourceManager.GetObject("imgonline-com-ua-Resize-tD5X5MjUouHlg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +136,16 @@ namespace Chat_Forms.Properties {
         internal static System.Drawing.Bitmap RegistrationBackground {
             get {
                 object obj = ResourceManager.GetObject("RegistrationBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sendButton {
+            get {
+                object obj = ResourceManager.GetObject("sendButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

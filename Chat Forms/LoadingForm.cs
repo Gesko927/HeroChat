@@ -20,12 +20,12 @@ namespace Chat_Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(this.Opacity == 1)
+            if (this.bunifuCircleProgressbar1.Value == 100)
             {
                 timer1.Stop();
             }
 
-            this.Opacity += .03;
+            this.bunifuCircleProgressbar1.Value += 1;
         }
     }
 }

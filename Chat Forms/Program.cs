@@ -18,10 +18,10 @@ namespace Chat_Forms
             Application.SetCompatibleTextRenderingDefault(false);
 
             LoadingForm loadForm = new LoadingForm();
-            DateTime end = DateTime.Now + TimeSpan.FromSeconds(3);
+            
             loadForm.Show();
 
-            while(end > DateTime.Now)
+            while(loadForm.bunifuCircleProgressbar1.Value != 100)
             {
                 Application.DoEvents();
             }

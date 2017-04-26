@@ -15,25 +15,19 @@ namespace Chat_Forms_Server_
         static TcpListener tcpListener;
         public List<ClientObject> clients = new List<ClientObject>();
         private RichTextBox chat;
-        private ComboBox comboBox;
+        private ComboBox clientComboBox;
 
-        public ServerObject(RichTextBox chat, ComboBox clientsComboBox)
+        public ServerObject(RichTextBox chat, ComboBox clientComboBox)
         {
-            comboBox = clientsComboBox;
+            this.clientComboBox = clientComboBox;
             this.chat = chat;
         }
+
         protected internal void AddConnection(ClientObject clientObject)
         {
             clients.Add(clientObject);
         }
-        protected internal void RemoveConnection(string id)
-        {
-            ClientObject client = clients.FirstOrDefault(c => c.Id == id);
-            if (client != null)
-            {
-                clients.Remove(client);
-            }
-        }
+
         protected internal void Listen()
         {
             try
@@ -46,7 +40,7 @@ namespace Chat_Forms_Server_
                 {
                     TcpClient tcpClient = tcpListener.AcceptTcpClient();
 
-                    ClientObject clientObject = new ClientObject(tcpClient, this, chat, comboBox);
+                    ClientObject clientObject = new ClientObject(tcpClient, this, chat, clientComboBox);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
@@ -61,11 +55,11 @@ namespace Chat_Forms_Server_
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
 
-            for (int i = 0; i < clients.Count; i++)
+            foreach (ClientObject cl in clients)
             {
-                if (clients[i].Id != id) 
+                if (cl != null && cl.Id != id)
                 {
-                    clients[i].Stream.Write(data, 0, data.Length); 
+                    cl.Stream.Write(data, 0, data.Length);
                 }
             }
         }
@@ -74,11 +68,11 @@ namespace Chat_Forms_Server_
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
 
-            for (int i = 0; i < clients.Count; i++)
+            foreach (ClientObject cl in clients)
             {
-                if (clients[i].Id == id)
+                if (cl.Id == id)
                 {
-                    clients[i].Stream.Write(data, 0, data.Length);
+                    cl.Stream.Write(data, 0, data.Length);
                 }
             }
         }
@@ -87,19 +81,37 @@ namespace Chat_Forms_Server_
         {
             tcpListener.Stop();
 
-            for (int i = 0; i < clients.Count; i++)
+            foreach (ClientObject cl in clients)
             {
-                clients[i].Close(); 
+                cl.Close();
             }
+
+            clients.Clear();
         }
 
         protected internal void DisconnectUser(string id)
         {
-            for(int i = 0; i < clients.Count; ++i)
+            ClientObject client = null;
+
+            foreach (ClientObject cl in clients)
             {
-                if(clients[i].Id == id)
+                if (cl.Id == id)
                 {
-                    clients[i].Close();
+                    client = cl;
+                    cl.Close();
+                }
+            }
+
+            clients.Remove(client);
+        }
+
+        protected internal void RemoveClientFromComboBox(string username)
+        {
+            for (int i = 0; i < clientComboBox.Items.Count; ++i)
+            {
+                if (clientComboBox.Items[i].ToString() == username)
+                {
+                    clientComboBox.Items.RemoveAt(i);
                 }
             }
         }
