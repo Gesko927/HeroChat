@@ -21,7 +21,7 @@ namespace Chat_Forms
         private bool IsAllowedUser()
         {
             var methodResult = false;
-            var count = 0;
+            int count;
 
             using (var connection =
                 new SqlConnection(

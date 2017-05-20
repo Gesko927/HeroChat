@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chat_Forms_Server_
@@ -42,7 +39,7 @@ namespace Chat_Forms_Server_
             _server = serverObject;
             _clientsComboBox = clients;
             serverObject.AddConnection(this);
-            this._chat = chat;
+            _chat = chat;
         }
 
         public void Process()
@@ -50,7 +47,7 @@ namespace Chat_Forms_Server_
             try
             {
                 Stream = _client.GetStream();
-                string message = GetMessage();
+                var message = GetMessage();
                 _userName = message;
 
                 message = _userName + " joined to chat!";
@@ -58,10 +55,10 @@ namespace Chat_Forms_Server_
                 _clientInfo.User = _client;
                 _clientInfo.Login = _userName;
                 _clientsComboBox.Items.Add(_clientInfo.Login);
-                Id = GetID(_userName).ToString();
+                Id = GetId(_userName).ToString();
 
-                _server.BroadcastMessage(message, this.Id);
-                _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
+                _server.BroadcastMessage(message, Id);
+                _chat.AppendText(DateTime.Now.ToShortTimeString() + "-----" + message + "\n");
 
                 while (true)
                 {
@@ -73,14 +70,14 @@ namespace Chat_Forms_Server_
                         { throw new Exception(); }
 
                         message = String.Format("[ {0} ]: {1}", _userName, message);
-                        _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
-                        _server.BroadcastMessage(message, this.Id);
+                        _chat.AppendText(DateTime.Now.ToShortTimeString() + "-----" + message + "\n");
+                        _server.BroadcastMessage(message, Id);
                     }
                     catch(Exception)
                     {
                         message = String.Format("[ {0} ]: покинул чат", _userName);
-                        _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
-                        _server.BroadcastMessage(message, this.Id);
+                        _chat.AppendText(DateTime.Now.ToShortTimeString() + "-----" + message + "\n");
+                        _server.BroadcastMessage(message, Id);
                         
                         for(int i = 0; i < _clientsComboBox.Items.Count; ++i)
                         {
@@ -99,14 +96,14 @@ namespace Chat_Forms_Server_
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                _server.DisconnectUser(this.Id);
+                _server.DisconnectUser(Id);
                 Close();
             }
         }
 
-        private static int GetID(string username)
+        private static int GetId(string username)
         {
-            int result = 0;
+            var result = 0;
 
             try
             {

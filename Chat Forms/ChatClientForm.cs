@@ -11,8 +11,8 @@ namespace Chat_Forms
     {
         #region Private Fields
 
-        private const string host = "127.0.0.1";
-        private const int port = 8888;
+        private const string Host = "127.0.0.1";
+        private const int Port = 8888;
         private readonly Client _chatClient;
         private readonly Image[] _avatars = new Image[17];
         private readonly Random _random;
@@ -66,7 +66,7 @@ namespace Chat_Forms
         {
             try
             {
-                _chatClient.ConnectToServer(host, port);
+                _chatClient.ConnectToServer(Host, Port);
 
                 connectPictureBox.Image = Resources._005_cloud_computing_2;
                 userNameLabel.ForeColor = Color.LimeGreen;
@@ -82,14 +82,12 @@ namespace Chat_Forms
 
         private void avatarPictureBox_Click(object sender, EventArgs e)
         {
-            var filePath = "";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                filePath = openFileDialog1.FileName;
+                var filePath = openFileDialog1.FileName;
 
                 avatarPictureBox.Image = Image.FromFile(filePath);
             }
-            ;
         }
 
         private void sendPictureBox_Click(object sender, EventArgs e)

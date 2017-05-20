@@ -51,10 +51,9 @@ namespace Chat_Forms.ClientClass
         {
             var data = new byte[64];
             var builder = new StringBuilder();
-            var bytes = 0;
             do
             {
-                bytes = _stream.Read(data, 0, data.Length);
+                var bytes = _stream.Read(data, 0, data.Length);
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             } while (_stream.DataAvailable);
 
@@ -133,10 +132,8 @@ namespace Chat_Forms.ClientClass
         /// </summary>
         public void Disconnect()
         {
-            if (_stream != null)
-                _stream.Close();
-            if (_client != null)
-                _client.Close();
+            _stream?.Close();
+            _client?.Close();
         }
     }
 }
