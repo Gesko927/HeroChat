@@ -11,50 +11,57 @@ namespace Chat_Forms_Server_
 {
     public struct ClientInfoStruct
     {
-        public TcpClient user;
-        public string login;
+        public TcpClient User;
+        public string Login;
 
     }
     public class ClientObject
     {
+        #region Protected Properties
+
         protected internal string Id { get; private set; }
 
         protected internal NetworkStream Stream { get; private set; }
 
-        private string userName;
+        #endregion
 
-        ClientInfoStruct clientInfo;
-        TcpClient client = new TcpClient();
-        ServerObject server;
-        RichTextBox chat;
-        ComboBox clientsComboBox;
+        #region Private Fieds
+
+        private string _userName;
+        private ClientInfoStruct _clientInfo;
+        private readonly TcpClient _client;
+        private readonly ServerObject _server;
+        private readonly RichTextBox _chat;
+        private readonly ComboBox _clientsComboBox;
+
+        #endregion
 
         public ClientObject(TcpClient tcpClient, ServerObject serverObject, RichTextBox chat, ComboBox clients)
         {
-            client = tcpClient;
-            server = serverObject;
-            clientsComboBox = clients;
+            _client = tcpClient;
+            _server = serverObject;
+            _clientsComboBox = clients;
             serverObject.AddConnection(this);
-            this.chat = chat;
+            this._chat = chat;
         }
 
         public void Process()
         {
             try
             {
-                Stream = client.GetStream();
+                Stream = _client.GetStream();
                 string message = GetMessage();
-                userName = message;
+                _userName = message;
 
-                message = userName + " joined to chat!";
+                message = _userName + " joined to chat!";
 
-                clientInfo.user = client;
-                clientInfo.login = userName;
-                clientsComboBox.Items.Add(clientInfo.login);
-                Id = GetID(userName).ToString();
+                _clientInfo.User = _client;
+                _clientInfo.Login = _userName;
+                _clientsComboBox.Items.Add(_clientInfo.Login);
+                Id = GetID(_userName).ToString();
 
-                server.BroadcastMessage(message, this.Id);
-                chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
+                _server.BroadcastMessage(message, this.Id);
+                _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
 
                 while (true)
                 {
@@ -65,24 +72,25 @@ namespace Chat_Forms_Server_
                         if (message == "")
                         { throw new Exception(); }
 
-                        message = String.Format("[ {0} ]: {1}", userName, message);
-                        chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
-                        server.BroadcastMessage(message, this.Id);
+                        message = String.Format("[ {0} ]: {1}", _userName, message);
+                        _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
+                        _server.BroadcastMessage(message, this.Id);
                     }
                     catch(Exception)
                     {
-                        message = String.Format("[ {0} ]: покинул чат", userName);
-                        chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
-                        server.BroadcastMessage(message, this.Id);
+                        message = String.Format("[ {0} ]: покинул чат", _userName);
+                        _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----" + message + "\n");
+                        _server.BroadcastMessage(message, this.Id);
                         
-                        for(int i = 0; i < clientsComboBox.Items.Count; ++i)
+                        for(int i = 0; i < _clientsComboBox.Items.Count; ++i)
                         {
-                            if(clientsComboBox.Items[i].ToString() == userName)
+                            if(_clientsComboBox.Items[i].ToString() == _userName)
                             {
-                                clientsComboBox.Items.RemoveAt(i);
+                                _clientsComboBox.Items.RemoveAt(i);
                             }
                         }
-                        //Close();
+
+                        _clientsComboBox.Refresh();
 
                         break;
                     }
@@ -91,12 +99,12 @@ namespace Chat_Forms_Server_
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                server.DisconnectUser(this.Id);
+                _server.DisconnectUser(this.Id);
                 Close();
             }
         }
 
-        private int GetID(string username)
+        private static int GetID(string username)
         {
             int result = 0;
 
@@ -120,29 +128,22 @@ namespace Chat_Forms_Server_
         {
             StringBuilder builder = new StringBuilder();
 
-            byte[] data = new byte[64];
-            
-            int bytes = 0;
+            var data = new byte[64];
+
             do
             {
-                bytes = Stream.Read(data, 0, data.Length);
+                var bytes = Stream.Read(data, 0, data.Length);
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
             while (Stream.DataAvailable);
-         
+
             return builder.ToString();
         }
 
         protected internal void Close()
         {
-            if (Stream != null)
-            {
-                Stream.Close();
-            }
-            if (client != null)
-            {
-                client.Close();
-            }
+            Stream?.Close();
+            _client?.Close();
         }
     }
 }

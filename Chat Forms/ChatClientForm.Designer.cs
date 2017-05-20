@@ -55,7 +55,7 @@
             this.userNameLabel.Location = new System.Drawing.Point(145, 20);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(126, 34);
+            this.userNameLabel.Size = new System.Drawing.Size(156, 42);
             this.userNameLabel.TabIndex = 2;
             this.userNameLabel.Text = "Nickname";
             // 
@@ -84,9 +84,9 @@
             // connectPictureBox
             // 
             this.connectPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.connectPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("connectPictureBox.Image")));
+            this.connectPictureBox.Image = global::Chat_Forms.Properties.Resources._004_cloud_computing;
             this.connectPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("connectPictureBox.InitialImage")));
-            this.connectPictureBox.Location = new System.Drawing.Point(272, 75);
+            this.connectPictureBox.Location = new System.Drawing.Point(281, 77);
             this.connectPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.connectPictureBox.Name = "connectPictureBox";
             this.connectPictureBox.Size = new System.Drawing.Size(65, 64);
@@ -97,14 +97,14 @@
             // avatarPictureBox
             // 
             this.avatarPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.avatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("avatarPictureBox.Image")));
+            this.avatarPictureBox.Image = global::Chat_Forms.Properties.Resources._12;
             this.avatarPictureBox.Location = new System.Drawing.Point(9, 32);
             this.avatarPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.avatarPictureBox.Name = "avatarPictureBox";
             this.avatarPictureBox.Size = new System.Drawing.Size(129, 154);
             this.avatarPictureBox.TabIndex = 8;
             this.avatarPictureBox.TabStop = false;
-            this.avatarPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.avatarPictureBox.Click += new System.EventHandler(this.avatarPictureBox_Click);
             // 
             // nameLabel
             // 
@@ -113,7 +113,7 @@
             this.nameLabel.Location = new System.Drawing.Point(146, 65);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(103, 29);
+            this.nameLabel.Size = new System.Drawing.Size(130, 37);
             this.nameLabel.TabIndex = 9;
             this.nameLabel.Text = "Unknown";
             // 
@@ -124,7 +124,7 @@
             this.countryLabel.Location = new System.Drawing.Point(146, 94);
             this.countryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.countryLabel.Name = "countryLabel";
-            this.countryLabel.Size = new System.Drawing.Size(103, 29);
+            this.countryLabel.Size = new System.Drawing.Size(130, 37);
             this.countryLabel.TabIndex = 10;
             this.countryLabel.Text = "Unknown";
             // 
@@ -135,7 +135,7 @@
             this.ageLabel.Location = new System.Drawing.Point(146, 123);
             this.ageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(103, 29);
+            this.ageLabel.Size = new System.Drawing.Size(130, 37);
             this.ageLabel.TabIndex = 11;
             this.ageLabel.Text = "Unknown";
             // 
@@ -152,7 +152,8 @@
             // chatPanel
             // 
             this.chatPanel.BackColor = System.Drawing.Color.White;
-            this.chatPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chatPanel.BackgroundImage")));
+            this.chatPanel.BackgroundImage = global::Chat_Forms.Properties.Resources.imgonline_com_ua_Resize_tD5X5MjUouHlg;
+            this.chatPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.chatPanel.Controls.Add(this.sendPictureBox);
             this.chatPanel.Controls.Add(this.avatarPictureBox);
             this.chatPanel.Controls.Add(this.userNameLabel);
@@ -172,7 +173,7 @@
             // sendPictureBox
             // 
             this.sendPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.sendPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("sendPictureBox.Image")));
+            this.sendPictureBox.Image = global::Chat_Forms.Properties.Resources.sendButton;
             this.sendPictureBox.ImageActive = null;
             this.sendPictureBox.Location = new System.Drawing.Point(281, 509);
             this.sendPictureBox.Name = "sendPictureBox";
@@ -200,7 +201,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChatClientForm";
             this.Text = "Chat Client";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatClientForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChatClientForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.connectPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();

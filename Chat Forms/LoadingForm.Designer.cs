@@ -64,7 +64,8 @@
             // LoadingForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::Chat_Forms.Properties.Resources.ChatLogoWithHeros;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(356, 651);
             this.Controls.Add(this.bunifuCircleProgressbar1);

@@ -55,7 +55,7 @@ namespace Chat_Forms_Server_
             this.clientComboBox.Location = new System.Drawing.Point(428, 145);
             this.clientComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.clientComboBox.Name = "clientComboBox";
-            this.clientComboBox.Size = new System.Drawing.Size(133, 21);
+            this.clientComboBox.Size = new System.Drawing.Size(133, 24);
             this.clientComboBox.TabIndex = 1;
             // 
             // chatTextBox
@@ -106,7 +106,7 @@ namespace Chat_Forms_Server_
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(769, 455);
+            this.panel1.Size = new System.Drawing.Size(757, 433);
             this.panel1.TabIndex = 6;
             // 
             // sendPrivateMsgBtn
@@ -176,7 +176,7 @@ namespace Chat_Forms_Server_
             // ChatServerForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(809, 535);
+            this.ClientSize = new System.Drawing.Size(797, 513);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

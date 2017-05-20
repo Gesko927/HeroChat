@@ -1,70 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chat_Forms
 {
     public partial class LoginForm : Form
     {
-        private ChatClientForm chatForm;
-        private RegisterForm registerForm;
+        #region Private Fields
+
+        private ChatClientForm _chatForm;
+        private RegisterForm _registerForm;
+
+        #endregion
+
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private bool IsAllowedUser(string login, string password)
+        private bool IsAllowedUser()
         {
-            bool methodResult = false;
-            int count = 0;
+            var methodResult = false;
+            var count = 0;
 
-            SqlConnection connection;
-
-            try
+            using (var connection =
+                new SqlConnection(
+                    @"Data Source=DESKTOP-GECKO\SQLEXPRESS;Initial Catalog=ChatClientDB;Integrated Security=True"))
             {
-                connection = new SqlConnection(@"Data Source=DESKTOP-GECKO\SQLEXPRESS;Initial Catalog=ChatClientDB;Integrated Security=True");
                 connection.Open();
-                string sqlCommand = "SELECT Count(*) FROM Users WHERE Login = '" + login + "' AND Password = '" + password + "';";
-                SqlCommand command = new SqlCommand(sqlCommand, connection);
-                count = (int)command.ExecuteScalar();
+
+                const string sqlCommand = "SELECT Count(*) FROM Users WHERE Login = @Login AND Password = @Password ;";
+                var command = new SqlCommand(sqlCommand, connection);
+                command.Parameters.AddWithValue("@Login", loginTextBox.text);
+                command.Parameters.AddWithValue("@Password", passwordTextBox.text);
+
+                count = (int) command.ExecuteScalar();
                 connection.Close();
             }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
 
-            if(count != 0)
-            {
+            if (count != 0)
                 methodResult = true;
-            }
+
 
             return methodResult;
         }
 
+        #region Events
+
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if (IsAllowedUser(loginTextBox.text, passwordTextBox.text))
+            if (IsAllowedUser())
             {
-                chatForm = new ChatClientForm(loginTextBox.text);
-                chatForm.Owner = this;
+                _chatForm = new ChatClientForm(loginTextBox.text);
+                _chatForm.Owner = this;
 
-                chatForm.StartPosition = FormStartPosition.Manual;
-                chatForm.Location = this.Location;
+                _chatForm.StartPosition = FormStartPosition.Manual;
+                _chatForm.Location = Location;
 
-                chatForm.Show();
-                this.Hide();
+                _chatForm.Show();
+                Hide();
             }
             else
             {
-                MessageBox.Show("Invalid login or password!");
+                MessageBox.Show(@"Invalid login or password!");
                 loginTextBox.text = "";
                 passwordTextBox.text = "";
             }
@@ -72,14 +70,16 @@ namespace Chat_Forms
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            registerForm = new RegisterForm();
-            registerForm.Owner = this;
+            _registerForm = new RegisterForm();
+            _registerForm.Owner = this;
 
-            registerForm.StartPosition = FormStartPosition.Manual;
-            registerForm.Location = this.Location;
+            _registerForm.StartPosition = FormStartPosition.Manual;
+            _registerForm.Location = Location;
 
-            registerForm.Show();
-            this.Hide();
+            _registerForm.Show();
+            Hide();
         }
+
+        #endregion
     }
 }

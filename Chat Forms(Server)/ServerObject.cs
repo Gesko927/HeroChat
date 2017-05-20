@@ -12,35 +12,44 @@ namespace Chat_Forms_Server_
 {
     public class ServerObject
     {
-        static TcpListener tcpListener;
-        public List<ClientObject> clients = new List<ClientObject>();
-        private RichTextBox chat;
-        private ComboBox clientComboBox;
+
+        #region Public Fields
+
+        public List<ClientObject> Clients = new List<ClientObject>();
+
+        #endregion
+
+        #region Private Fields
+
+        private static TcpListener _tcpListener;
+        private readonly RichTextBox _chat;
+        private readonly ComboBox _clientComboBox;
+
+        #endregion
 
         public ServerObject(RichTextBox chat, ComboBox clientComboBox)
         {
-            this.clientComboBox = clientComboBox;
-            this.chat = chat;
+            this._clientComboBox = clientComboBox;
+            this._chat = chat;
         }
 
         protected internal void AddConnection(ClientObject clientObject)
         {
-            clients.Add(clientObject);
+            Clients.Add(clientObject);
         }
 
         protected internal void Listen()
         {
             try
             {
-                tcpListener = new TcpListener(IPAddress.Any, 8888);
-                tcpListener.Start();
-                chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----Server is on.\n");
+                _tcpListener = new TcpListener(IPAddress.Any, 8888);
+                _tcpListener.Start();
+                _chat.AppendText(DateTime.Now.ToShortTimeString().ToString() + "-----Server is on.\n");
 
                 while (true)
                 {
-                    TcpClient tcpClient = tcpListener.AcceptTcpClient();
-
-                    ClientObject clientObject = new ClientObject(tcpClient, this, chat, clientComboBox);
+                    TcpClient tcpClient = _tcpListener.AcceptTcpClient();
+                    ClientObject clientObject = new ClientObject(tcpClient, this, _chat, _clientComboBox);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
@@ -55,7 +64,7 @@ namespace Chat_Forms_Server_
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
 
-            foreach (ClientObject cl in clients)
+            foreach (ClientObject cl in Clients)
             {
                 if (cl != null && cl.Id != id)
                 {
@@ -68,7 +77,7 @@ namespace Chat_Forms_Server_
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
 
-            foreach (ClientObject cl in clients)
+            foreach (ClientObject cl in Clients)
             {
                 if (cl.Id == id)
                 {
@@ -79,21 +88,21 @@ namespace Chat_Forms_Server_
 
         protected internal void Disconnect()
         {
-            tcpListener.Stop();
+            _tcpListener.Stop();
 
-            foreach (ClientObject cl in clients)
+            foreach (ClientObject cl in Clients)
             {
                 cl.Close();
             }
 
-            clients.Clear();
+            Clients.Clear();
         }
 
         protected internal void DisconnectUser(string id)
         {
             ClientObject client = null;
 
-            foreach (ClientObject cl in clients)
+            foreach (ClientObject cl in Clients)
             {
                 if (cl.Id == id)
                 {
@@ -102,16 +111,16 @@ namespace Chat_Forms_Server_
                 }
             }
 
-            clients.Remove(client);
+            Clients.Remove(client);
         }
 
         protected internal void RemoveClientFromComboBox(string username)
         {
-            for (int i = 0; i < clientComboBox.Items.Count; ++i)
+            for (int i = 0; i < _clientComboBox.Items.Count; ++i)
             {
-                if (clientComboBox.Items[i].ToString() == username)
+                if (_clientComboBox.Items[i].ToString() == username)
                 {
-                    clientComboBox.Items.RemoveAt(i);
+                    _clientComboBox.Items.RemoveAt(i);
                 }
             }
         }

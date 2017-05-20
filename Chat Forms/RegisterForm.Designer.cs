@@ -60,10 +60,10 @@
             this.userNameTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.userNameTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.userNameTextBox.LineThickness = 3;
-            this.userNameTextBox.Location = new System.Drawing.Point(178, 229);
-            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.userNameTextBox.Location = new System.Drawing.Point(162, 222);
+            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(163, 30);
+            this.userNameTextBox.Size = new System.Drawing.Size(180, 37);
             this.userNameTextBox.TabIndex = 0;
             this.userNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -80,10 +80,10 @@
             this.passwordTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.passwordTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.passwordTextBox.LineThickness = 3;
-            this.passwordTextBox.Location = new System.Drawing.Point(178, 277);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordTextBox.Location = new System.Drawing.Point(162, 271);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(163, 30);
+            this.passwordTextBox.Size = new System.Drawing.Size(180, 37);
             this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -100,10 +100,10 @@
             this.firstNameTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.firstNameTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.firstNameTextBox.LineThickness = 3;
-            this.firstNameTextBox.Location = new System.Drawing.Point(178, 328);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.firstNameTextBox.Location = new System.Drawing.Point(162, 319);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(163, 30);
+            this.firstNameTextBox.Size = new System.Drawing.Size(180, 37);
             this.firstNameTextBox.TabIndex = 2;
             this.firstNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -120,10 +120,10 @@
             this.lastNameTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.lastNameTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.lastNameTextBox.LineThickness = 3;
-            this.lastNameTextBox.Location = new System.Drawing.Point(178, 384);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNameTextBox.Location = new System.Drawing.Point(162, 364);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(163, 30);
+            this.lastNameTextBox.Size = new System.Drawing.Size(180, 37);
             this.lastNameTextBox.TabIndex = 3;
             this.lastNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -140,10 +140,10 @@
             this.emailTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.emailTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.emailTextBox.LineThickness = 3;
-            this.emailTextBox.Location = new System.Drawing.Point(178, 437);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.emailTextBox.Location = new System.Drawing.Point(162, 414);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(163, 30);
+            this.emailTextBox.Size = new System.Drawing.Size(180, 37);
             this.emailTextBox.TabIndex = 4;
             this.emailTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -160,10 +160,10 @@
             this.countryTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.countryTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.countryTextBox.LineThickness = 3;
-            this.countryTextBox.Location = new System.Drawing.Point(178, 486);
-            this.countryTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.countryTextBox.Location = new System.Drawing.Point(162, 461);
+            this.countryTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(163, 30);
+            this.countryTextBox.Size = new System.Drawing.Size(180, 37);
             this.countryTextBox.TabIndex = 5;
             this.countryTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -180,10 +180,10 @@
             this.ageTextBox.LineIdleColor = System.Drawing.Color.Gray;
             this.ageTextBox.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
             this.ageTextBox.LineThickness = 3;
-            this.ageTextBox.Location = new System.Drawing.Point(178, 535);
-            this.ageTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ageTextBox.Location = new System.Drawing.Point(162, 508);
+            this.ageTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.ageTextBox.Name = "ageTextBox";
-            this.ageTextBox.Size = new System.Drawing.Size(163, 30);
+            this.ageTextBox.Size = new System.Drawing.Size(180, 37);
             this.ageTextBox.TabIndex = 6;
             this.ageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -193,9 +193,10 @@
             this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.userNameLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
-            this.userNameLabel.Location = new System.Drawing.Point(47, 233);
+            this.userNameLabel.Location = new System.Drawing.Point(10, 225);
+            this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(100, 26);
+            this.userNameLabel.Size = new System.Drawing.Size(130, 34);
             this.userNameLabel.TabIndex = 7;
             this.userNameLabel.Text = "Username";
             // 
@@ -205,9 +206,10 @@
             this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.passwordLabel.ForeColor = System.Drawing.Color.White;
-            this.passwordLabel.Location = new System.Drawing.Point(50, 281);
+            this.passwordLabel.Location = new System.Drawing.Point(10, 274);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(97, 26);
+            this.passwordLabel.Size = new System.Drawing.Size(124, 34);
             this.passwordLabel.TabIndex = 8;
             this.passwordLabel.Text = "Password";
             // 
@@ -217,9 +219,10 @@
             this.firstNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.firstNameLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
-            this.firstNameLabel.Location = new System.Drawing.Point(50, 332);
+            this.firstNameLabel.Location = new System.Drawing.Point(10, 322);
+            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(101, 26);
+            this.firstNameLabel.Size = new System.Drawing.Size(133, 34);
             this.firstNameLabel.TabIndex = 9;
             this.firstNameLabel.Text = "First Name";
             // 
@@ -229,9 +232,10 @@
             this.lastNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.lastNameLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.lastNameLabel.ForeColor = System.Drawing.Color.White;
-            this.lastNameLabel.Location = new System.Drawing.Point(50, 388);
+            this.lastNameLabel.Location = new System.Drawing.Point(10, 367);
+            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(99, 26);
+            this.lastNameLabel.Size = new System.Drawing.Size(129, 34);
             this.lastNameLabel.TabIndex = 10;
             this.lastNameLabel.Text = "Last Name";
             // 
@@ -241,9 +245,10 @@
             this.emailLabel.BackColor = System.Drawing.Color.Transparent;
             this.emailLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
-            this.emailLabel.Location = new System.Drawing.Point(47, 441);
+            this.emailLabel.Location = new System.Drawing.Point(10, 417);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(57, 26);
+            this.emailLabel.Size = new System.Drawing.Size(75, 34);
             this.emailLabel.TabIndex = 11;
             this.emailLabel.Text = "Email";
             // 
@@ -253,9 +258,10 @@
             this.countryLabel.BackColor = System.Drawing.Color.Transparent;
             this.countryLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.countryLabel.ForeColor = System.Drawing.Color.White;
-            this.countryLabel.Location = new System.Drawing.Point(47, 490);
+            this.countryLabel.Location = new System.Drawing.Point(10, 464);
+            this.countryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.countryLabel.Name = "countryLabel";
-            this.countryLabel.Size = new System.Drawing.Size(80, 26);
+            this.countryLabel.Size = new System.Drawing.Size(102, 34);
             this.countryLabel.TabIndex = 12;
             this.countryLabel.Text = "Country";
             // 
@@ -265,20 +271,22 @@
             this.ageLabel.BackColor = System.Drawing.Color.Transparent;
             this.ageLabel.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
             this.ageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(133)))), ((int)(((byte)(85)))));
-            this.ageLabel.Location = new System.Drawing.Point(47, 539);
+            this.ageLabel.Location = new System.Drawing.Point(10, 511);
+            this.ageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(44, 26);
+            this.ageLabel.Size = new System.Drawing.Size(57, 34);
             this.ageLabel.TabIndex = 13;
             this.ageLabel.Text = "Age";
             // 
             // signUpBtn
             // 
             this.signUpBtn.BackColor = System.Drawing.Color.Transparent;
-            this.signUpBtn.Image = ((System.Drawing.Image)(resources.GetObject("signUpBtn.Image")));
+            this.signUpBtn.Image = global::Chat_Forms.Properties.Resources.SignUp;
             this.signUpBtn.ImageActive = null;
-            this.signUpBtn.Location = new System.Drawing.Point(205, 585);
+            this.signUpBtn.Location = new System.Drawing.Point(162, 566);
+            this.signUpBtn.Margin = new System.Windows.Forms.Padding(4);
             this.signUpBtn.Name = "signUpBtn";
-            this.signUpBtn.Size = new System.Drawing.Size(104, 50);
+            this.signUpBtn.Size = new System.Drawing.Size(139, 62);
             this.signUpBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.signUpBtn.TabIndex = 14;
             this.signUpBtn.TabStop = false;
@@ -287,10 +295,11 @@
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(364, 661);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::Chat_Forms.Properties.Resources.RegistrationBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(356, 651);
             this.Controls.Add(this.signUpBtn);
             this.Controls.Add(this.ageLabel);
             this.Controls.Add(this.countryLabel);
@@ -306,7 +315,9 @@
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterForm_FormClosing);

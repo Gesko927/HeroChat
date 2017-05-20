@@ -46,7 +46,7 @@
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.Color.Transparent;
-            this.loginPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginPanel.BackgroundImage")));
+            this.loginPanel.BackgroundImage = global::Chat_Forms.Properties.Resources.ChatLogoWithHeros;
             this.loginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.loginPanel.Controls.Add(this.signUpBtn);
             this.loginPanel.Controls.Add(this.signInBtn);
@@ -63,7 +63,7 @@
             // signUpBtn
             // 
             this.signUpBtn.BackColor = System.Drawing.Color.Transparent;
-            this.signUpBtn.Image = ((System.Drawing.Image)(resources.GetObject("signUpBtn.Image")));
+            this.signUpBtn.Image = global::Chat_Forms.Properties.Resources.SignUp;
             this.signUpBtn.ImageActive = null;
             this.signUpBtn.Location = new System.Drawing.Point(193, 562);
             this.signUpBtn.Name = "signUpBtn";
@@ -77,7 +77,7 @@
             // signInBtn
             // 
             this.signInBtn.BackColor = System.Drawing.Color.Transparent;
-            this.signInBtn.Image = ((System.Drawing.Image)(resources.GetObject("signInBtn.Image")));
+            this.signInBtn.Image = global::Chat_Forms.Properties.Resources.SignIn;
             this.signInBtn.ImageActive = null;
             this.signInBtn.Location = new System.Drawing.Point(63, 562);
             this.signInBtn.Name = "signInBtn";
@@ -96,6 +96,7 @@
             this.passwordTextBox.ForeColor = System.Drawing.Color.Black;
             this.passwordTextBox.Icon = ((System.Drawing.Image)(resources.GetObject("passwordTextBox.Icon")));
             this.passwordTextBox.Location = new System.Drawing.Point(88, 499);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(182, 36);
             this.passwordTextBox.TabIndex = 7;
@@ -119,7 +120,7 @@
             // loginPictureBox
             // 
             this.loginPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
+            this.loginPictureBox.Image = global::Chat_Forms.Properties.Resources.LoginBtn;
             this.loginPictureBox.Location = new System.Drawing.Point(63, 307);
             this.loginPictureBox.Name = "loginPictureBox";
             this.loginPictureBox.Size = new System.Drawing.Size(230, 127);
@@ -129,7 +130,7 @@
             // passwordPictureBox
             // 
             this.passwordPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.passwordPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("passwordPictureBox.Image")));
+            this.passwordPictureBox.Image = global::Chat_Forms.Properties.Resources.PasswordBtn;
             this.passwordPictureBox.Location = new System.Drawing.Point(63, 430);
             this.passwordPictureBox.Name = "passwordPictureBox";
             this.passwordPictureBox.Size = new System.Drawing.Size(230, 126);

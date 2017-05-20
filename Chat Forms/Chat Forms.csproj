@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,38 +74,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientClass\Client.cs" />
     <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="ChatClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="ChatClientForm.Designer.cs">
+      <DependentUpon>ChatClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,17 +106,11 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="ChatClientForm.resx">
+      <DependentUpon>ChatClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -142,13 +123,6 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,22 +172,63 @@
     <None Include="bin\Debug\PasswordBtn.png" />
     <None Include="bin\Debug\RegistrationBackground.png" />
     <None Include="bin\Debug\sendButton.png" />
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Charachters\17.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
